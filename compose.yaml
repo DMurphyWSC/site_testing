@@ -1,0 +1,15 @@
+version: '3'
+services:
+  app:
+    container_name: mytestsite
+    restart: always
+    build: .
+    ports: 
+      - '8088:3000'
+    external_links:
+      - mongo
+  mongo:
+    container_name: mymongotest
+    image: mongo
+    ports:
+      - '27017:27017'
